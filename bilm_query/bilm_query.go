@@ -8,6 +8,10 @@ import (
 )
 
 func main() {
+	os.Exit(main_impl());
+}
+
+func main_impl() int {
 	if len(os.Args) != 3 {
 		usage()
 	}
@@ -31,16 +35,19 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	exit_code := 1
 	for rows.Next() {
 		var message string
 		if err := rows.Scan(&message); err != nil {
 			log.Fatal(err)
 		}
 		os.Stdout.Write([]byte(message+"\n"))
+		exit_code = 0
 	}
 	if err := rows.Err(); err != nil {
 		log.Fatal(err)
 	}
+	return exit_code
 }
 
 func usage() {
