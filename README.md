@@ -19,5 +19,5 @@ Assumes the [`GOPATH` environment variable](http://golang.org/doc/code.html#GOPA
 ```{bash}
 $ find "$GOPATH/pkg" -type f -path '*/github.com/mattn/go-sqlite3.a' -exec rm '{}' \;
 $ CGO_CFLAGS=-DSQLITE_ENABLE_FTS4 go get github.com/mattn/go-sqlite3
-$ go get github.com/mlin/bilm
+$ go get github.com/mlin/bilm/bilm_add github.com/mlin/bilm/bilm_query
 ```
