@@ -1,0 +1,6 @@
+language: go
+go: 
+ - 1.1
+ - release
+
+script: bash -e test.sh
